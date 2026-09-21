@@ -19,5 +19,11 @@ pipeline {
                 echo 'Test stage running'
             }
         }
+
+        stage('Semgrep SAST') {
+            steps {
+                sh 'semgrep scan --config auto --error .'
+            }
+        }
     }
 }
